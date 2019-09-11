@@ -1,9 +1,14 @@
- h1 { 
-        color:red;
-        font-family: sans-serif;
-        border-bottom: 1px solid blue;
-        }
-    blockquote { 
-        background-color: lightgray;
-        padding: 1rem;
-        }
+ h1 {
+   color: red;
+   font-family: sans-serif;
+   border-bottom: 1px solid blue;
+ }
+
+ blockquote {
+   background-color: lightgray;
+   padding: 1rem;
+ }
+
+ #logo {
+   width: 20%;
+ }
