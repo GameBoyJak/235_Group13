@@ -12,3 +12,8 @@
  #logo {
    width: 20%;
  }
+body {display: inline;}
+h2 {color: orange;}
+p{margin-left: 100px;}
+.side {float:right;}
+img.side{margin: 0 12px;}
