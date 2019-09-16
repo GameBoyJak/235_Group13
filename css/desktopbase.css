@@ -16,6 +16,7 @@
  body {
    display: inline;
    font-family: sans-serif;
+   background-color: #F0CEA0;
  }
 
  h2 {
@@ -37,3 +38,27 @@
  h1, h2 {
    font-family: 'Cute Font', cursive, verdana, sans-serif;
  }
+
+ a {
+   color: #29335C;
+   animation-duration: 0.6s;
+ }
+
+ a:hover {
+   color: #F42069;
+   animation-duration: 0.6s;
+ }
+
+ blockquote {
+   background-color: #F3A712;
+ }
+
+main {
+  border: 1px solid black;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
+  padding: 2rem;
+}
