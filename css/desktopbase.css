@@ -12,8 +12,28 @@
  #logo {
    width: 20%;
  }
-body {display: inline;}
-h2 {color: orange;}
-p{margin-left: 100px;}
-.side {float:right;}
-img.side{margin: 0 12px;}
+
+ body {
+   display: inline;
+   font-family: sans-serif;
+ }
+
+ h2 {
+   color: orange;
+ }
+
+ p {
+   margin-left: 100px;
+ }
+
+ .side {
+   float: right;
+ }
+
+ img.side {
+   margin: 0 12px;
+ }
+
+ h1, h2 {
+   font-family: 'Cute Font', cursive, verdana;
+ }
