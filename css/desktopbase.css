@@ -62,3 +62,27 @@ main {
   width: 80vw;
   padding: 2rem;
 }
+
+dl {
+  display: flex;
+  flex-flow: row wrap;
+  border: solid #333;
+  border-width: 1px 1px 0 0;
+  margin-left: 10px;
+ }
+dt {
+  flex-basis: 10%;
+  flex-shrink: 1;
+  padding: 2px 4px;
+  background: #333;
+  text-align: right;
+  color: #fff;
+ }
+dd {
+  flex-basis: 80%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 5px;
+  padding: 2px 4px;
+  border-bottom: 1px solid #333;
+ }
