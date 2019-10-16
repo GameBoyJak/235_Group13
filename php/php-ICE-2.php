@@ -6,13 +6,26 @@
 </head>
 
 <body>
-<?php
-	$colors = ["red","green","blue"];
 	<ol>
-	for($i = 0; $i < count($colors); $i++{
-	echo "<li> $colors[$i]</li>"
+	<?php
+	$colors = ["red","green","blue"];
+	for($i=0;$i<count($colors);$i++){
+		$value = $colors[$i];
+		echo "<li>$value</li>";
 	}
-	</ol>
 	?>	
+	</ol>
+	
+	<ul>
+	<?php	
+	$links = ["RIT"=>"http://www.rit.edu",
+   	"RPI"=>"http://www.rpi.edu",
+   	"MCC"=>"http://www.monroecc.edu"];
+ 	foreach($links as $key => $value){
+ 		echo "<li><a href=$value>$key</a></li>";
+ 	}
+	?>
+	</ul>
+	
 </body>
 </html>
