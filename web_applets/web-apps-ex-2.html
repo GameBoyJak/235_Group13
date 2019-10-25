@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>DOM-3</title>
+	<style>
+		body{border:1px solid gray;}
+		p b{transform: rotate(20deg)}
+	</style>
+</head>
+<body>
+<h1>My Page</h1>
+<h2>Info</h2>
+<h2>Pictures</h2>
+<h2>More Info</h2>
+<p>Blah <b>Blah</b> Blah</p>
+<p>Blah <b>Blah</b> Blah</p>
+<p id="lastParagraph">Blah <b>Blah</b> Blah</p>
+<footer>Copyright &copy; <b>20XX</b></footer>
+<script>
+	"use strict"; 
+  
+  // add your own code here.
+    document.querySelector("h1").innerHTML = "My UFO Page";
+    document.querySelector("h2").innerHTML = "My UFO Info";
+    document.querySelector("h2:nth-of-type(2)").innerHTML = "My UFO pictures";
+    document.querySelector("h2:nth-of-type(3)").innerHTML = "";
+    let bode = document.querySelector("body");
+    bode.style.fontFamily = "sans-serif";
+    bode.style.color = "#A44";
+    let fake = document.querySelector("p");
+    fake.innerHTML = "Report UFO sightings here: <a href='http://nuforc.org'>NUFORC</a>";
+    fake.style.color = "chartreuse";
+    fake.style.fontWeight = "bold";
+    fake.style.fontSize = "2em";
+    fake.style.textTransform = "uppercase";
+    fake.style.textShadow = "3px 2px #A44";
+    document.querySelector("p:nth-of-type(2)").innerHTML = "";
+    document.querySelector("p:nth-of-type(3)").innerHTML = "<img src='https://img.thedailybeast.com/image/upload/c_crop,d_placeholder_euli9k,h_1687,w_3000,x_0,y_0/dpr_1.5/c_limit,w_1044/fl_lossy,q_auto/v1561924213/190630-michaelson-ufo-tease_gdjk5v' alt = 'Unusual Flying Orb'>";
+    document.querySelector("footer").innerHTML = "Copyright &copy Drew Carlson \& Alex Parrot2 2019";
+	</script>
+</body>
+</html>
