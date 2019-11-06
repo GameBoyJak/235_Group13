@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Web Apps-3-HW</title>
+  <style>
+    body {
+      border: 1px solid gray;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>My Favorites</h1>
+  <h2>My Favorite Colors</h2>
+
+  <ol id="colorsList">
+
+  </ol>
+
+  <h2>My Favorite Foods</h2>
+
+  <ol id="foodsList">
+
+  </ol>
+
+  <h2>My Favorite Links</h2>
+
+  <ol id="linksList">
+
+  </ol>
+
+  <script>
+    "use strict";
+    let colors = ["red", "green", "blue", "purple", "pink"];
+    let foods = ["cheesesteaks", "candy corn", "chicken tendies", "spaghetti", "regretti"]; // add some foods
+
+    // Optional - can you figure out how to pull both the key AND the value
+    // from the `links` object literal?
+    let links = {
+      "RIT": "http://www.rit.edu",
+      "RWAG": "https://www.facebook.com/RWAGclub",
+      "New Media Club": "http://newmediaclub.cias.rit.edu"
+    }
+
+    function appendListItems(listElement,array){
+      for(let word of array){
+        let li = document.createElement('li');
+        li.innerHTML = word;
+        listElement.appendChild(li);
+      }
+    }
+
+    function appendListLinks(listElement,array){
+      for(let word in array){
+        let li = document.createElement('li');
+        li.innerHTML = "<a href= \"" + array[word] + "\">" + word + "</a>";
+        listElement.appendChild(li);
+      }
+    }
+
+    appendListItems(document.querySelector("#colorsList"), colors);
+
+    appendListItems(document.querySelector("#foodsList"), foods);
+
+    appendListLinks(document.querySelector("#linksList"), links);
+  </script>
+</body>
+
+</html>
