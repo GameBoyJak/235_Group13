@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>PixiJS-1</title>
+</head>
+<body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.0/pixi.min.js"></script>
+<script>
+
+// #1 - Create a new Pixi application
+// http://pixijs.download/dev/docs/PIXI.Application.html
+const app = new PIXI.Application(600,400);
+
+// #2 - Append its "view" (a <canvas> tag that it created for us) to the DOM
+document.body.appendChild(app.view); 
+
+const square = new PIXI.Graphics();
+square.beginFill(0xFF0000);
+square.lineStyle(3,0xFFFF00,1);
+square.drawRect(-20,-20,40,40);
+square.endFill();
+square.x = 25;
+square.y = 50;
+app.stage.addChild(square);
+
+const circle = new PIXI.Graphics();
+circle.beginFill(0xFF0000);
+circle.drawCircle(0,0,20);
+circle.endFill();
+circle.x = 125;
+circle. y = 50;
+app.stage.addChild(circle);
+
+const line = new PIXI.Graphics();
+line.lineStyle(4,0xFF0000,1);
+line.moveTo(0,0);
+line.lineTo(590, 0);
+line.x = 5;
+line.y = 100;
+app.stage.addChild(line);
+
+const poly = new PIXI.Graphics();
+poly.beginFill(0xFF00FF);
+poly.lineStyle(3, 0x00FF00, 1);
+poly.moveTo(0,0);
+poly.lineTo(-100,100);
+poly.lineTo(100,100);
+poly.lineTo(0,0);
+poly.endFill();
+poly.x = 125;
+poly.y = 125;
+app.stage.addChild(poly);
+
+</script>
+</body>
+</html>
