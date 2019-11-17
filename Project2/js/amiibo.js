@@ -2,6 +2,7 @@
 	window.onload = init;
 	
 	function init(){
+		document.querySelector("#status").innerHTML = "Ready to search!"
 		document.querySelector("#search").onclick = getData;
 	}
 	
