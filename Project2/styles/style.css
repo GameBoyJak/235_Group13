@@ -22,3 +22,13 @@ h2 {
 #content {
     margin: 0% 10%;
 }
+
+footer {
+    float: right;
+    margin: 20% 10% 10%;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.5em;
+}
