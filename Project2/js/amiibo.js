@@ -6,6 +6,10 @@
 		document.querySelector("#search").onclick = getData;
 	}
 	
+	let displayTerm = "";
+	let limit = 0;
+	let region = "";
+
 	function getData(){
 		// 1 - main entry point to web service
 		const SERVICE_URL = "https://www.amiiboapi.com/api/amiibo/?name=";
@@ -21,7 +25,7 @@
 		let term = document.querySelector("#searchterm").value.trim();
 		term = encodeURIComponent(term);
 		url+=term;
-		
+		displayTerm = term;
 		// 4 - update the UI
 		if (term.length < 1)
 		{
@@ -29,7 +33,7 @@
 			return;
 		}
 		document.querySelector("#status").innerHTML = `<b>Querying a search for <i>"${term}"</i> with web service:</b> <a href="${url}" target="_blank">${url}</a>`;
-		
+		limit = document.querySelector("#limit").value;
 		// 5 - create a new XHR object
 		let xhr = new XMLHttpRequest();
 	
@@ -59,13 +63,35 @@
 	
 		// 3 - turn the text into a parsable JavaScript object
 		let obj = JSON.parse(xhr.responseText);
+		if (!obj.amiibo || obj.amiibo.length == 0){
+            document.querySelector("#status").innerHTML = "<b>No results found for '" + displayTerm + "'</b>";
+            return;
+        }
 		
 		// 4 - if there is an array of results, loop through them
 		let results = obj.amiibo;
-		let firstResult = results[0];
-		let bigString = "<p><i>Here is the first result!</i></p>";
-		bigString += `<img src="${firstResult.image}" title="${firstResult.character}" />`;
+		region = document.querySelector("#region").value;
+		//result.sort(compRegion(a,b));
+		let actualResults = results.length;
+		if (actualResults > limit)
+			actualResults = limit;
+		let bigString = `<p><i>${actualResults} amiibo: </i></p>`;
+		
+		for (let i = 0; i < actualResults; i++){
+			bigString += `<img src="${results[i].image}" title="${results[i].character}" />`;
+		}
 
 		// 5 - display final results to user
 		document.querySelector("#content").innerHTML = bigString;
-	}	
+	}
+	function compRegion(a,b){
+		switch (region){
+			case "au":
+				return a.release[0].replace('-','') - b.release[0].replace('-','');
+			case "eu":
+				return a.release[1].replace('-','') - b.release[1].replace('-','');
+			case "jp":
+				return a.release[2].replace('-','') - b.release[2].replace('-','');
+			default: return a.release[3].replace('-','') - b.release[3].replace('-','');
+		}
+	]

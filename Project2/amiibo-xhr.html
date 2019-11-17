@@ -16,12 +16,20 @@
 
 <div id="controls">
 <p>Search Term -&gt; <input id="searchterm" type="text" size="20" maxlength="20" autofocus value="mario" /></p>
+Max # results -&gt;
 <select id="limit">
     <option value="1">1</option>
     <option value="3" selected>3</option>
     <option value="5">5</option>
     <option value="10">10</option>
     <option value="50">50</option>
+</select>
+Sort by release -&gt;
+<select id="region">
+    <option value="au">Australia</option>
+    <option value="eu">Europe</option>
+    <option value="jp">Japan</option>
+    <option value="na" selected>America</option>
 </select>
 <p><button type="button" id="search" class="green">Search!</button></p>
 <p id="status"></p>
