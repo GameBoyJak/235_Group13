@@ -84,6 +84,7 @@
 		// 5 - display final results to user
 		document.querySelector("#content").innerHTML = bigString;
 	}
+	
 	function compRegion(a,b){
 		switch (region){
 			case "au":
@@ -94,4 +95,4 @@
 				return a.release[2].replace('-','') - b.release[2].replace('-','');
 			default: return a.release[3].replace('-','') - b.release[3].replace('-','');
 		}
-	]
+	}
