@@ -22,7 +22,7 @@
 		url+=term;
 		
 		// 4 - update the UI
-		document.querySelector("#debug").innerHTML = `<b>Querying web service with:</b> <a href="${url}" target="_blank">${url}</a>`;
+		document.querySelector("#status").innerHTML = `<b>Querying web service with:</b> <a href="${url}" target="_blank">${url}</a>`;
 		
 		// 5 - create a new XHR object
 		let xhr = new XMLHttpRequest();
