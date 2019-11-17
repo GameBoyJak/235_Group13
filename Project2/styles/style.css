@@ -14,3 +14,11 @@ h1 {
     border-radius: 40px;
     transition-duration: 0.2s;
 }
+
+h2 {
+    margin: 0% 10%;
+}
+
+#content {
+    margin: 0% 10%;
+}
