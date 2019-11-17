@@ -23,7 +23,12 @@
 		url+=term;
 		
 		// 4 - update the UI
-		document.querySelector("#status").innerHTML = `<b>Querying web service with:</b> <a href="${url}" target="_blank">${url}</a>`;
+		if (term.length < 1)
+		{
+			document.querySelector("#status").innerHTML = "Please insert a search term";
+			return;
+		}
+		document.querySelector("#status").innerHTML = `<b>Querying a search for <i>"${term}"</i> with web service:</b> <a href="${url}" target="_blank">${url}</a>`;
 		
 		// 5 - create a new XHR object
 		let xhr = new XMLHttpRequest();
@@ -42,12 +47,13 @@
 	
 	function dataError(e){
 		console.log("An error occurred");
+		document.querySelector("#status").innerHTML = "<b>An error occurred</b>";
 	}
 	
 	function dataLoaded(e){
 		// 1 - e.target is the xhr object
 		let xhr = e.target;
-	
+		document.querySelector("#status").innerHTML = "<b>Success!</b>";
 		// 2 - xhr.responseText is the JSON file we just downloaded
 		console.log(xhr.responseText);
 	
