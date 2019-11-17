@@ -1,4 +1,24 @@
 h1 {
     text-align: center;
-    
+}
+
+#controls {
+    margin: 0% 10%;
+    background-color: lightcoral;
+    border-radius: 20px;
+    padding: 1em;
+    transition-duration: 0.2s;
+}
+
+#controls:hover {
+    border-radius: 40px;
+    transition-duration: 0.2s;
+}
+
+h2 {
+    margin: 0% 10%;
+}
+
+#content {
+    margin: 0% 10%;
 }
