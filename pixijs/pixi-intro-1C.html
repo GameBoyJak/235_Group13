@@ -5,6 +5,10 @@
 	<title>PixiJS-1</title>
 </head>
 <body>
+<div>
+<button id="move">Move</button>
+<button id="rotate">Rotate</button>
+<div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.0/pixi.min.js"></script>
 <script>
@@ -53,6 +57,16 @@ poly.x = 125;
 poly.y = 125;
 app.stage.addChild(poly);
 
+document.querySelector("#move").onclick = e=>{square.x+=10;circle.x+=10;line.x+=10;poly.x+=10;};
+document.querySelector("#rotate").onclick = e=>{
+	let amt = Math.PI/6; // 30 degrees
+	square.rotation += amt;
+	line.rotation += amt;
+	poly.rotation += amt;
+	// we can't see the rotation of the circle, so let's scale it up instead YEET
+	circle.width += 5;
+	circle.height += 5;
+};
 </script>
 </body>
 </html>
