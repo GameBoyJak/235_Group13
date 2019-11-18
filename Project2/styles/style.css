@@ -1,3 +1,5 @@
+
+
 h1 {
     text-align: center;
 }
@@ -7,28 +9,44 @@ h1 {
     background-color: lightcoral;
     border-radius: 20px;
     padding: 1em;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
 }
 
 #controls:hover {
     border-radius: 40px;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
 }
 
 h2 {
-    margin: 0% 10%;
+    margin: 1% 10%;
 }
 
 #content {
     margin: 0% 10%;
 }
 
-footer {
-    float: right;
-    margin: 20% 10% 10%;
-}
-
-a {
+#doclink {
     text-decoration: none;
     font-size: 1.5em;
+    transition-duration: 0.1s;
+    color: purple;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: lightcoral;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#doclink:hover {
+    font-size: 1.7em;
+    transition-duration: 0.1s;
+    text-decoration: none;
+    background-color: blue;
+    color: white;
+    border-radius: 20px;
+}
+
+hr {
+    border: 2px solid black;
 }
