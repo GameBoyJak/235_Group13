@@ -13,7 +13,6 @@ h1 {
 }
 
 #controls:hover {
-    border-radius: 40px;
     transition-duration: 0.1s;
 }
 
@@ -29,17 +28,35 @@ h2 {
     text-decoration: none;
     font-size: 1.5em;
     transition-duration: 0.1s;
-    color: purple;
+    color: black;
     position: fixed;
     bottom: 50px;
     right: 50px;
-    background-color: lightcoral;
+    background-color: lightgreen;
     padding: 10px;
     border-radius: 10px;
 }
 
 #doclink:hover {
-    font-size: 1.7em;
+    transition-duration: 0.1s;
+    text-decoration: none;
+    background-color: blue;
+    color: white;
+    border-radius: 20px;
+}
+
+#search {
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition-duration: 0.1s;
+    color: black;
+    background-color: lightgreen;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#search:hover {
     transition-duration: 0.1s;
     text-decoration: none;
     background-color: blue;
