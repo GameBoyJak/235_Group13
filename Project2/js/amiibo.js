@@ -8,11 +8,11 @@
 	
 	let displayTerm = "";
 	let limit = 0;
-	let region = "";
+	let query = "";
 
 	function getData(){
 		// 1 - main entry point to web service
-		const SERVICE_URL = "https://www.amiiboapi.com/api/amiibo/?name=";
+		const SERVICE_URL = "https://www.amiiboapi.com/api/amiibo/";
 		
 		// No API Key required!
 		
@@ -20,6 +20,8 @@
 		// not necessary for this service endpoint
 		let url = SERVICE_URL;
 		
+		query = document.querySelector("#query").value;
+		url += `?${query}=`
 		// 3 - parse the user entered term we wish to search
 		// not necessary for this service endpoint
 		let term = document.querySelector("#searchterm").value.trim();
@@ -64,14 +66,17 @@
 		// 3 - turn the text into a parsable JavaScript object
 		let obj = JSON.parse(xhr.responseText);
 		if (!obj.amiibo || obj.amiibo.length == 0){
-            document.querySelector("#status").innerHTML = "<b>No results found for '" + displayTerm + "'</b>";
+			let caseSense = "";
+			if (query != "name"){
+				caseSense = ". The amiibo series and source game searches are punctuation sensitive. Make sure to add any periods or symbols (i.e. 'super smash bros.' has a period, as does every other 'bros' series).";
+			}
+			document.querySelector("#status").innerHTML = "<b>No results found for '" + displayTerm + "'</b>" + caseSense;
+			document.querySelector("#content").innerHTML = "";
             return;
         }
 		
 		// 4 - if there is an array of results, loop through them
 		let results = obj.amiibo;
-		region = document.querySelector("#region").value;
-		//result.sort(compRegion(a,b));
 		let actualResults = results.length;
 		if (actualResults > limit)
 			actualResults = limit;
@@ -83,16 +88,4 @@
 
 		// 5 - display final results to user
 		document.querySelector("#content").innerHTML = bigString;
-	}
-	
-	function compRegion(a,b){
-		switch (region){
-			case "au":
-				return a.release[0].replace('-','') - b.release[0].replace('-','');
-			case "eu":
-				return a.release[1].replace('-','') - b.release[1].replace('-','');
-			case "jp":
-				return a.release[2].replace('-','') - b.release[2].replace('-','');
-			default: return a.release[3].replace('-','') - b.release[3].replace('-','');
-		}
 	}

@@ -16,21 +16,23 @@
 
 <div id="controls">
 <p>Search Term -&gt; <input id="searchterm" type="text" size="20" maxlength="20" autofocus value="mario" /></p>
-Max # results -&gt;
-<select id="limit">
-    <option value="1">1</option>
-    <option value="3" selected>3</option>
-    <option value="5">5</option>
-    <option value="10">10</option>
-    <option value="50">50</option>
+<p>
+Search by -&gt;
+<select id="query">
+    <option value="name" selected>Name</option>
+    <option value="amiiboSeries">Amiibo Series</option>
+    <option value="gameseries">Source Game</option>
 </select>
-Sort by release -&gt;
-<select id="region">
-    <option value="au">Australia</option>
-    <option value="eu">Europe</option>
-    <option value="jp">Japan</option>
-    <option value="na" selected>America</option>
-</select>
+</p><p>
+    Max # results -&gt;
+    <select id="limit">
+        <option value="1">1</option>
+        <option value="5" selected>5</option>
+        <option value="10">10</option>
+        <option value="50">50</option>
+        <option value="500">All</option>
+    </select>
+    </p>
 <p><button type="button" id="search" class="green">Search!</button></p>
 <p id="status"></p>
 </div>
@@ -38,7 +40,7 @@ Sort by release -&gt;
 
 <h2>Results</h2>
  <div id="content">
- <p>No data yet!</p>
+
  </div>
      <footer>
          <a href="documentation.html" id="doclink">View Documentation</a>
