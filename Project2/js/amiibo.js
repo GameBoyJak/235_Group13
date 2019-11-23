@@ -2,6 +2,10 @@
 	window.onload = init;
 	
 	function init(){
+		const lastTerm = localStorage.getItem("dcap-recent-term");
+		if (lastTerm){
+			document.querySelector("#searchterm").value = lastTerm;
+		}
 		document.querySelector("#status").innerHTML = "Ready to search!"
 		document.querySelector("#search").onclick = getData;
 	}
@@ -36,6 +40,9 @@
 		}
 		document.querySelector("#status").innerHTML = `<b>Querying a search for <i>"${term}"</i> with web service:</b> <a href="${url}" target="_blank">${url}</a>`;
 		limit = document.querySelector("#limit").value;
+
+		localStorage.setItem("dcap-recent-term", displayTerm);
+
 		// 5 - create a new XHR object
 		let xhr = new XMLHttpRequest();
 	
@@ -52,7 +59,6 @@
 	}
 	
 	function dataError(e){
-		console.log("An error occurred");
 		document.querySelector("#status").innerHTML = "<b>An error occurred</b>";
 	}
 	
@@ -68,7 +74,7 @@
 		if (!obj.amiibo || obj.amiibo.length == 0){
 			let caseSense = "";
 			if (query != "name"){
-				caseSense = ". The amiibo series and source game searches are punctuation sensitive. Make sure to add any periods or symbols (i.e. 'super smash bros.' has a period, as does every other 'bros' series).";
+				caseSense = ". The amiibo series and source game searches are punctuation sensitive (i.e. 'super smash bros.' has a period, as does every other 'bros' series).";
 			}
 			document.querySelector("#status").innerHTML = "<b>No results found for '" + displayTerm + "'</b>" + caseSense;
 			document.querySelector("#content").innerHTML = "";
@@ -83,7 +89,14 @@
 		let bigString = `<p><i>${actualResults} amiibo: </i></p>`;
 		
 		for (let i = 0; i < actualResults; i++){
-			bigString += `<img src="${results[i].image}" title="${results[i].character}" />`;
+			bigString += `<div class="result"><img src="${results[i].image}" title="${results[i].character} Amiibo"/>`;
+			switch (query){
+				case ("name"): bigString += `<span>Amiibo Series: ${results[i].amiiboSeries}</span><span>Source Game: ${results[i].gameSeries}</span>`; break;
+				case ("amiiboSeries"): bigString += `<span>Name: ${results[i].character}</span><span>Source Game: ${results[i].gameSeries}</span>`; break;
+				case ("gameseries"): bigString += `<span>Name: ${results[i].character}</span><span>Amiibo Series: ${results[i].amiiboSeries}</span>`; break;
+				default: bigString += "Whoops, something went wrong!";
+			}
+			bigString += `<span>US Release: ${results[i].release["na"]}</span></div>`;
 		}
 
 		// 5 - display final results to user
