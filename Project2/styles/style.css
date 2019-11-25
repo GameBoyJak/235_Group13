@@ -85,6 +85,11 @@ hr {
     transition-duration: 0.1s;
     background-color: lightgreen;
     padding: 30px;
+    margin: 10px;
+}
+
+.result img {
+    height: 400px;
 }
 
 .property {
