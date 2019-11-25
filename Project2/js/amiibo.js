@@ -2,7 +2,9 @@
 	window.onload = init;
 	
 	function init(){
-		const lastTerm = localStorage.getItem("dcap-recent-term");
+		let lastTerm = localStorage.getItem("dcap-recent-term");
+		while (lastTerm.includes("%20"))
+			lastTerm = lastTerm.replace("%20", " ");
 		if (lastTerm){
 			document.querySelector("#searchterm").value = lastTerm;
 		}
@@ -73,7 +75,7 @@
 		let obj = JSON.parse(xhr.responseText);
 		if (!obj.amiibo || obj.amiibo.length == 0){
 			let caseSense = "";
-			if (query != "name"){
+			if (query != "character"){
 				caseSense = ". The amiibo series and source game searches are punctuation sensitive (i.e. 'super smash bros.' has a period, as does every other 'bros' series).";
 			}
 			document.querySelector("#status").innerHTML = "<b>No results found for '" + displayTerm + "'</b>" + caseSense;
@@ -91,9 +93,9 @@
 		for (let i = 0; i < actualResults; i++){
 			bigString += `<div class="result"><img src="${results[i].image}" title="${results[i].character} Amiibo"/>`;
 			switch (query){
-				case ("name"): bigString += `<span><br><span class="property">Amiibo Series:</span> ${results[i].amiiboSeries}</span><span><br><span class="property">Source Game:</span> ${results[i].gameSeries}</span>`; break;
-				case ("amiiboSeries"): bigString += `<span><br><span class="property">Name:</span> ${results[i].character}</span><span><br><span class="property">Source Game:</span> ${results[i].gameSeries}</span>`; break;
-				case ("gameseries"): bigString += `<span><br><span class="property">Name:</span> ${results[i].character}</span><span><br><span class="property">Amiibo Series:</span> ${results[i].amiiboSeries}</span>`; break;
+				case ("character"): bigString += `<span><br><span class="property">Amiibo Series:</span> ${results[i].amiiboSeries}</span><span><br><span class="property">Source Game:</span> ${results[i].gameSeries}</span>`; break;
+				case ("amiiboSeries"): bigString += `<span><br><span class="property">Character:</span> ${results[i].character}</span><span><br><span class="property">Source Game:</span> ${results[i].gameSeries}</span>`; break;
+				case ("gameseries"): bigString += `<span><br><span class="property">Character:</span> ${results[i].character}</span><span><br><span class="property">Amiibo Series:</span> ${results[i].amiiboSeries}</span>`; break;
 				default: bigString += "Whoops, something went wrong!";
 			}
 			bigString += `<span><br><span class="property">US Release:</span> ${results[i].release["na"]}</span></div>`;
