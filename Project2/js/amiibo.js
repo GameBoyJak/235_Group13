@@ -8,6 +8,14 @@
 		if (lastTerm){
 			document.querySelector("#searchterm").value = lastTerm;
 		}
+		let lastQuery = localStorage.getItem("dcap-recent-query");
+		if (lastQuery){
+			document.querySelector("#query").querySelector(`option[value = '${lastQuery}']`).selected = true;
+		}
+		let lastLimit = localStorage.getItem("dcap-recent-limit");
+		if (lastLimit){
+			document.querySelector("#limit").querySelector(`option[value = '${lastLimit}']`).selected = true;
+		}
 		document.querySelector("#status").innerHTML = "Ready to search!"
 		document.querySelector("#search").onclick = getData;
 	}
@@ -44,6 +52,8 @@
 		limit = document.querySelector("#limit").value;
 
 		localStorage.setItem("dcap-recent-term", displayTerm);
+		localStorage.setItem("dcap-recent-query", query);
+		localStorage.setItem("dcap-recent-limit", limit)
 
 		// 5 - create a new XHR object
 		let xhr = new XMLHttpRequest();
@@ -69,7 +79,8 @@
 		let xhr = e.target;
 		document.querySelector("#status").innerHTML = "<b>Success!</b>";
 		// 2 - xhr.responseText is the JSON file we just downloaded
-		console.log(xhr.responseText);
+		
+		//console.log(xhr.responseText);
 	
 		// 3 - turn the text into a parsable JavaScript object
 		let obj = JSON.parse(xhr.responseText);
@@ -80,6 +91,7 @@
 			}
 			document.querySelector("#status").innerHTML = "<b>No results found for '" + displayTerm + "'</b>" + caseSense;
 			document.querySelector("#content").innerHTML = "";
+			document.querySelector("h2").innerHTML = `0 Results:`;
             return;
         }
 		
@@ -89,7 +101,8 @@
 		if (actualResults > limit){
 			actualResults = limit;
 		}
-		let bigString = `<p><i>${actualResults} amiibo: </i><br></p>`;
+		document.querySelector("h2").innerHTML = `${actualResults} Results:`;
+		let bigString = "";
 		
 		for (let i = 0; i < actualResults; i++){
 			bigString += `<div class="result"><img src="${results[i].image}" title="${results[i].character} Amiibo"/>`;
