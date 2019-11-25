@@ -70,14 +70,18 @@ hr {
     border: 2px solid black;
 }
 
+#content {
+    display: flex;
+}
+
 .result {
     background-color: lightcoral;
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
     transition-duration: 0.1s;
-    float: left;
     font-size: 1.5em;
+    justify-content: space-around;
 }
 
 .result:hover {
