@@ -86,8 +86,9 @@
 		// 4 - if there is an array of results, loop through them
 		let results = obj.amiibo;
 		let actualResults = results.length;
-		if (actualResults > limit)
+		if (actualResults > limit) {
 			actualResults = limit;
+		}
 		let bigString = `<p><i>${actualResults} amiibo: </i></p>`;
 		
 		for (let i = 0; i < actualResults; i++){
