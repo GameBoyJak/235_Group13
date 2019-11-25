@@ -67,3 +67,24 @@ h2 {
 hr {
     border: 2px solid black;
 }
+
+.result {
+    background-color: lightcoral;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    transition-duration: 0.1s;
+    float: left;
+    font-size: 1.5em;
+}
+
+.result:hover {
+    border-radius: 20px;
+    transition-duration: 0.1s;
+    background-color: lightgreen;
+    padding: 30px;
+}
+
+.property {
+    color: darkblue;
+}

@@ -91,12 +91,12 @@
 		for (let i = 0; i < actualResults; i++){
 			bigString += `<div class="result"><img src="${results[i].image}" title="${results[i].character} Amiibo"/>`;
 			switch (query){
-				case ("name"): bigString += `<span>Amiibo Series: ${results[i].amiiboSeries}</span><span>Source Game: ${results[i].gameSeries}</span>`; break;
-				case ("amiiboSeries"): bigString += `<span>Name: ${results[i].character}</span><span>Source Game: ${results[i].gameSeries}</span>`; break;
-				case ("gameseries"): bigString += `<span>Name: ${results[i].character}</span><span>Amiibo Series: ${results[i].amiiboSeries}</span>`; break;
+				case ("name"): bigString += `<span><br><span class="property">Amiibo Series:</span> ${results[i].amiiboSeries}</span><span><br><span class="property">Source Game:</span> ${results[i].gameSeries}</span>`; break;
+				case ("amiiboSeries"): bigString += `<span><br><span class="property">Name:</span> ${results[i].character}</span><span><br><span class="property">Source Game:</span> ${results[i].gameSeries}</span>`; break;
+				case ("gameseries"): bigString += `<span><br><span class="property">Name:</span> ${results[i].character}</span><span><br><span class="property">Amiibo Series:</span> ${results[i].amiiboSeries}</span>`; break;
 				default: bigString += "Whoops, something went wrong!";
 			}
-			bigString += `<span>US Release: ${results[i].release["na"]}</span></div>`;
+			bigString += `<span><br><span class="property">US Release:</span> ${results[i].release["na"]}</span></div>`;
 		}
 
 		// 5 - display final results to user
