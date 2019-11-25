@@ -2,6 +2,7 @@
 
 h1 {
     text-align: center;
+    font-size: 6em;
 }
 
 #controls {
@@ -10,6 +11,7 @@ h1 {
     border-radius: 20px;
     padding: 1em;
     transition-duration: 0.1s;
+    font-size: 1.5em;
 }
 
 #controls:hover {
@@ -87,4 +89,25 @@ hr {
 
 .property {
     color: darkblue;
+}
+
+ul {
+    margin-left: 5%;
+}
+
+li {
+    font-size: 3em;
+    transition-duration: 0.1s;
+}
+
+li:hover {
+    font-size: 3.3em;
+    transition-duration: 0.1s;
+    color: darkblue;
+}
+
+#docHeader {
+    margin-left: 5%;
+    color: darkblue;
+    font-size: 4em;
 }
