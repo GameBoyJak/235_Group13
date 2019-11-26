@@ -1,5 +1,8 @@
+
+
 h1 {
     text-align: center;
+    font-size: 6em;
 }
 
 #controls {
@@ -7,29 +10,114 @@ h1 {
     background-color: lightcoral;
     border-radius: 20px;
     padding: 1em;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
+    font-size: 1.5em;
 }
 
 #controls:hover {
-    border-radius: 40px;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
 }
 
 h2 {
-    margin: 0% 10%;
+    margin: 1% 10%;
 }
 
 #content {
     margin: 0% 10%;
 }
 
-footer {
-    float: right;
-    margin: 20% 10% 10%;
-}
-
-a {
+#doclink {
     text-decoration: none;
     font-size: 1.5em;
-    
+    transition-duration: 0.1s;
+    color: black;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: lightgreen;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#doclink:hover {
+    transition-duration: 0.1s;
+    text-decoration: none;
+    background-color: blue;
+    color: white;
+    border-radius: 20px;
+}
+
+#search {
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition-duration: 0.1s;
+    color: black;
+    background-color: lightgreen;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#search:hover {
+    transition-duration: 0.1s;
+    text-decoration: none;
+    background-color: blue;
+    color: white;
+    border-radius: 20px;
+}
+
+hr {
+    border: 2px solid black;
+}
+
+#content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.result {
+    background-color: lightcoral;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    transition-duration: 0.1s;
+    font-size: 1.5em;
+    justify-content: space-around;
+}
+
+.result:hover {
+    border-radius: 20px;
+    transition-duration: 0.1s;
+    background-color: lightgreen;
+    padding: 30px;
+    margin: 10px;
+}
+
+.result img {
+    height: 400px;
+}
+
+.property {
+    color: darkblue;
+}
+
+ul {
+    margin-left: 5%;
+}
+
+li {
+    font-size: 3em;
+    transition-duration: 0.1s;
+}
+
+li:hover {
+    font-size: 3.3em;
+    transition-duration: 0.1s;
+    color: darkblue;
+}
+
+#docHeader {
+    margin-left: 5%;
+    color: darkblue;
+    font-size: 4em;
 }
