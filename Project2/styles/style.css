@@ -73,6 +73,7 @@ hr {
 #content {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;;
 }
 
 .result {
@@ -106,12 +107,12 @@ ul {
 }
 
 li {
-    font-size: 3em;
+    font-size: 2em;
     transition-duration: 0.1s;
 }
 
 li:hover {
-    font-size: 3.3em;
+    font-size: 2.2em;
     transition-duration: 0.1s;
     color: darkblue;
 }
