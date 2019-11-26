@@ -3,9 +3,9 @@
 	
 	function init(){
 		let lastTerm = localStorage.getItem("dcap-recent-term");
-		while (lastTerm.includes("%20"))
-			lastTerm = lastTerm.replace("%20", " ");
 		if (lastTerm){
+			while (lastTerm.includes("%20"))
+				lastTerm = lastTerm.replace("%20", " ");
 			document.querySelector("#searchterm").value = lastTerm;
 		}
 		let lastQuery = localStorage.getItem("dcap-recent-query");
